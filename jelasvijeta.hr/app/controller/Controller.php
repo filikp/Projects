@@ -4,7 +4,7 @@ class Controller
 {
     protected $view;
 
-    public function __contruct()
+    public function __construct()
     {
         $this->view = new View();
     }
