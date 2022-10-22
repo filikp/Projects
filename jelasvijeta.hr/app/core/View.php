@@ -12,11 +12,16 @@ class View
     public function render($phtmlPage, $parameters=[])
     {
         //Log::log($parameters);
+        $viewFile = BP_APP . 'view' . DIRECTORY_SEPARATOR . $phtmlPage . 'phtml';
         ob_start();
         extract($parameters);
-        include_once BP_APP . 'view' . 
-                    DIRECTORY_SEPARATOR . $phtmlPage . '.phtml';
-        $content=ob_get_clean();
+
+        if(file_exists($viewFile)){
+            include_once $viewFile;
+        }else{
+            include_once BP_APP . 'view' . DIRECTORY_SEPARATOR . 'errorViewFile.phtml';
+        }
+        $contentView = ob_get_clean();
         include_once BP_APP . 'view' . 
                     DIRECTORY_SEPARATOR . $this->template . '.phtml';
     }

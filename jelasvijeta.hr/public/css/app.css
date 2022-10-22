@@ -1,0 +1,26 @@
+.footing{
+    position: absolute; 
+    bottom: 1rem;
+}
+
+a:link{
+    color: inherit;
+}
+
+.appname{
+    color: black;
+    transition: 0.15s;
+}
+
+.appname:hover{
+    color: green;
+    box-shadow: 2px 3px gray;
+    border-radius: 10px;
+    transition: 0.15s;
+}
+
+.appname:active{
+    color: black;
+    box-shadow: -2px -3px black;
+    border-radius: 9px;
+}

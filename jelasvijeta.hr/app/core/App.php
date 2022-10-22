@@ -33,9 +33,25 @@ class App
             $instance = new $class;
             $instance->$method();
         }else{ // Ukoliko ne postoji, ispiši da ne postoji Klasa->metoda
-            echo 'Ne postoji ' . $class . '-&gt' . $method;
+            $view = new View();
+            $view->render('errorClassOrMethod', [
+                'class' => $class,
+                'method' => $method
+            ]);
         }
     }
 
-    
+    public static function config($key)
+    {
+        $configFile = BP_APP . 'configuration.php';
+        if(!file_exists($configFile)){
+            return 'Datoteka' . $configFile . 'Ne postoji.';
+        }
+        $config = require $configFile;
+        if(isset($config[$key])){
+            return $config[$key];
+        }
+        return 'Ključ'. $key . ' ne postoji u datoteci ' . $configFile;
+    }
+
 }
