@@ -12,7 +12,7 @@ class View
     public function render($phtmlPage, $parameters=[])
     {
         //Log::log($parameters);
-        $viewFile = BP_APP . 'view' . DIRECTORY_SEPARATOR . $phtmlPage . 'phtml';
+        $viewFile = BP_APP . 'view' . DIRECTORY_SEPARATOR . $phtmlPage . '.phtml';
         ob_start();
         extract($parameters);
 

@@ -14,7 +14,7 @@ class App
         // Ukoliko drugi dio rute (klasa) nije postavljen, postavi ju na IndexController
         if(!isset($parts_of_route[1]) || $parts_of_route[1]===''){
             $class = 'IndexController';
-        }else{  // ukoliko je, počni velikim slovom i dovrši ga sa Controller. Npr index -> IndexController
+        }else{  // ukoliko je postavljen, počni velikim slovom i dovrši ga sa Controller. Npr index -> IndexController
             $class = ucfirst($parts_of_route[1]) . 'Controller';
         }
         //Log::log($class);

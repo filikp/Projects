@@ -7,22 +7,19 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text"><a class="appname" href="<?php echo App::config('url'); ?>"><?php echo App::config('nameApp'); ?></a></li>
-      <li>
-        <a href="#">Menu</a>
-        <ul class="menu vertical">
-          <li><a href="#">Mesna jela</a></li>
-          <li><a href="#">Morska jela</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
+      <li><a href="<?php echo App::config('url')?>jela">Jelovnik</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
-    <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a href="#">Jezik</a>
+        <ul class="menu vertical">
+          <li><a href="<?php echo App::config('url')?>jela">Hrv</a></li>
+          <li><a href="<?php echo App::config('url')?>jelaeng">Eng</a></li>
+          <li><a href="#">De</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>

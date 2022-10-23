@@ -2,5 +2,9 @@
 
 return [
     'url' => 'http://jelasvijeta.hr/',
-    'nameApp' => 'Jela svijeta'
+    'nameApp' => 'Jela svijeta',
+    'database' => [
+        'server'=>'localhost',
+        'database'=>'jelasvijeta'
+    ]
 ];
