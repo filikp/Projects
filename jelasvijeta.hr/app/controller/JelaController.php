@@ -7,10 +7,10 @@ class JelaController extends Controller
 
     public function index()
     {        
-        $kategorija = Jela::read();
+        $jela = Jela::read();
 
         $this->view->render($this->path . 'index',[
-            'kategorije' => $kategorija
+            'jela' => $jela
         ]);
     }
 
@@ -19,4 +19,12 @@ class JelaController extends Controller
     //     $this->kategorije=new stdClass();
     //     $this->kategorije->kategorija='';
     // }
+
+    public function kategorije()
+    {
+        $kategorije = Kategorije::read();
+        $this->view->render($this->path . 'kategorije',[
+            'kategorije' => $kategorije
+        ]);
+    }
 }

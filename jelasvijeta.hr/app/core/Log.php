@@ -1,12 +1,11 @@
 <?php
 
-// Ispisuje lijepo ono što nas zanima 
 class Log
 {
-    public static function log($what)
+    public static function log($elem)
     {
         echo '<pre>';
-        print_r($what);
+        print_r($elem);
         echo '</pre>';
     }
 }

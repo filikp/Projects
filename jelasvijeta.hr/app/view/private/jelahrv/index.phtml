@@ -15,6 +15,12 @@ Jela svijeta
                 <td><?=$j->kategorija?></td>
                 <td><?=$j->tag?></td>
                 <td><?=$j->sastojak?></td>
+                <td><?php Log::log($j->sastojciujelima); ?>
+                <?php foreach($j->sastojciujelima as $s){
+                        Log::log($s);
+                        echo $sastojak;
+                }
+                ?></td>
             </tr>
         <?php endforeach;?>
     </tbody>

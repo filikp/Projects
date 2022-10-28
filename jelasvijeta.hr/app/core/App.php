@@ -28,11 +28,22 @@ class App
         }
         //Log::log($method);
 
+        $parameter = '';
+        if(!isset($parts_of_route[3]) || $parts_of_route[3]===''){
+            $parameter = '';
+        }else{
+            $parameter = $parts_of_route[3];
+        }
+
         // ukoliko klasa i metoda u toj klasi postoje, instancijraj ju i pozovi tu metodu u toj klasi 
         if(class_exists($class) && method_exists($class, $method)){
-            $instance = new $class;
-            $instance->$method();
-        }else{ // Ukoliko ne postoji, ispiši da ne postoji Klasa->metoda
+            $instance = new $class();
+            if(strlen($parameter)>0){
+                $instance->$method($parameter);
+            }else{
+                $instance->$method();
+            }
+        }else{
             $view = new View();
             $view->render('errorClassOrMethod', [
                 'class' => $class,

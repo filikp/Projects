@@ -6,10 +6,9 @@ use jelasvijeta;
 
 create table jela(
     id int not null primary key auto_increment,
-    kategorija int,
-    sastojci int not null,
-    tag int not null,
-    jezik int not null
+    naziv varchar(50) not null,
+    kategorije int,
+    tags int not null
 );
 
 create table jezici(
@@ -32,22 +31,33 @@ create table sastojci(
     sastojak varchar(50) not null
 );
 
-alter table jela add foreign key (kategorija) references kategorije(id);
-alter table jela add foreign key (sastojci) references sastojci(id);
-alter table jela add foreign key (jezik) references jezici(id);
-alter table jela add foreign key (tag) references tags(id);
+create table sastojciujelima(
+    id int not null primary key auto_increment,
+    jela int not null,
+    sastojci int not null,
+    jezici int
+);
+
+alter table jela add foreign key (kategorije) references kategorije(id);
+alter table jela add foreign key (tags) references tags(id);
+alter table sastojciujelima add foreign key (jela) references jela(id);
+alter table sastojciujelima add foreign key (sastojci) references sastojci(id);
+alter table sastojciujelima add foreign key (jezici) references jezici(id);
 
 insert into sastojci (sastojak)
-values ('sir'), ('kupus'), ('gljive');
+values ('sastojak1'), ('sastojak2'), ('sastojak3');
 
 insert into kategorije (kategorija)
-values ('meso'), ('riba'), ('povrće');
+values ('kategorija1'), ('kategorija2'), ('kategorija3');
 
 insert into tags (tag)
-values ('meso'), ('riba'), ('povrće');
+values ('tag1'), ('tag2'), ('tag3');
 
 insert into jezici (jezik)
-values ('hrvatski'), ('engleski'), ('njemački');
+values ('hrv'), ('eng'), ('de');
 
-insert into jela (kategorija, sastojci, tag, jezik)
-values (1,1,1,1);
+insert into jela (naziv, kategorije, tags)
+values ('Prase',1,1), ('Burek',3,3);
+
+insert into sastojciujelima (jela, sastojci, jezici)
+values (1,1,1), (1,2,1), (1,3,2), (2,1,2), (2,3,3)
